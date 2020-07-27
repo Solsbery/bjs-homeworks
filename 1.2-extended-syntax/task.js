@@ -28,9 +28,8 @@ function getAverageMark(marks){
     for (let i = 0; i < marks.length; i++) {
     		marksSum += marks[i];
     	};
-    let averageMark = marksSum / marks.length;
 
-    return averageMark;
+    return marksSum / marks.length;
 }
 
 function askDrink(name,dateOfBirthday){
