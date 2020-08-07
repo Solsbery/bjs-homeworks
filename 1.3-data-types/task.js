@@ -18,9 +18,9 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
    }
    	const parsedAmount = parseFloat(amount);
 
-   let creditAmount = amount - contribution;
+   let creditAmount = parsedAmount - parsedContribution;
    let term = (date.getFullYear() - new Date().getFullYear()) * 12 + (date.getMonth() - new Date().getMonth());
-   let monthPercent = percent / 100 / 12;
+   let monthPercent = parsedPercent / 100 / 12;
    let monthPayment = creditAmount * (monthPercent + monthPercent / (((1 + monthPercent) ** term) - 1));
    let totalAmount = monthPayment * term;
    console.log(totalAmount.toFixed(2));
