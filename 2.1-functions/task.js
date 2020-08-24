@@ -31,38 +31,37 @@ function showSolutionMessage(a,b,c){
 
 //Задача 2
 function getAverageScore(data){
+	let averageSumm = 0;
+	let dataKeys = Object.keys(data);
+	let subjectsAmount = dataKeys.length;
 
-	for (let subject in data) {
-		let marks = data[subject];
-		// console.log(`${subject}: ${marks}`);
+	for (let prop in data) {
+		let marks = data[prop];
+		
+		let subjectAverage = getAverageMarks(marks);
 
-		let average = [];
-		average.push(getAverageMarks(marks));
-		console.log(average);
-	
-		// for (average in data) {
-		// 	data.average.push(subjectAverage);
-		// 	console.log(data.average);
-		// }
+		averageSumm += subjectAverage;
+		// data.average.push(subjectAverage);
 	}
+	data.average = averageSumm / subjectsAmount;
+	// console.log(data.prop);
+	return {
+		
+		average: data.average,
 
-
-
-	function getAverageMarks(marks){
-		let marksSum = 0;
-
-    	if (marks.length == 0) {
-    		return 0;
-    	} else {
-    		for (let i = 0; i < marks.length; i++) {
-    			marksSum += marks[i];
-    		};
-    	} 
-
-    	return marksSum / marks.length;
 	}
-
 }
+
+function getAverageMarks(marks){
+	let marksSum = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+    	marksSum += marks[i];
+    };
+
+    return marksSum / marks.length;
+}
+
 
 
 
