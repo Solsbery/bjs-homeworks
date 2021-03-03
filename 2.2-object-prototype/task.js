@@ -31,9 +31,19 @@ function getAverageMark(marks) {
 }
 
 //Задача 3
-function checkBirthday(birthday) {
+function checkBirthday(date) {
 	const now = Date.now();
-	birthday = birthday.Date();
-	console.log(birthday);
-    // return verdict
+	let birthday = Number(new Date(date));
+	let diff = now - birthday;
+	let age = diff / 31557600000;
+
+	// if (age >= 18) {
+	// 	console.log('Yes');
+	// }
+	// 	else {
+	// 		console.log('No');
+	// 	}
+	
+	if (age >= 18) return true;
+	return false
 }
